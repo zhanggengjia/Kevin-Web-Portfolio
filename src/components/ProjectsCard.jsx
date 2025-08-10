@@ -1,7 +1,10 @@
 import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from 'react-icons/fa';
 import { TbWorldWww } from 'react-icons/tb';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const ProjectsCard = ({ img, title, text, url, github }) => {
+  const [showMore, setShowMore] = useState(false)
   return (
     <article className='bg-white rounded-lg shadow-md hover:shadow-xl duration-300'>
       <img src={img} alt={title} className='w-full object-cover rounded-t-lg h-64' />
@@ -9,9 +12,37 @@ const ProjectsCard = ({ img, title, text, url, github }) => {
         <h2 className='text-xl tracking-wide font-medium'>
           {title}
         </h2>
-        <p className='mt-4 text-slate-700 leading-loose'>
-          {text}
+
+        <p className="mt-4 text-slate-700 leading-loose">
+          {!showMore && <span>{text.slice(0, 50)}... </span>}
+
+          <AnimatePresence initial={false}>
+            {showMore && (
+              <motion.span
+                id="proj-desc"
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="block overflow-hidden"
+              >
+                {text}
+              </motion.span>
+            )}
+          </AnimatePresence>
+
+          <button
+            type="button"
+            className="ml-2 bg-transparent border-0 capitalize cursor-pointer text-blue-500 font-semibold hover:underline focus:underline"
+            onClick={() => setShowMore(v => !v)}
+            aria-expanded={showMore}
+            aria-controls="proj-desc"
+          >
+            {showMore ? 'Show Less' : 'Read More'}
+          </button>
         </p>
+
+
         <div className='mt-4 flex gap-x-4'>
           <a href={url}>
             <TbWorldWww className='h-8 w-8 text-slate-500 hover:text-black duration-300' />
