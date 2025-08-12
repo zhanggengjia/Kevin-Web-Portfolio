@@ -6,14 +6,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 const ProjectsCard = ({ img, title, text, url, github }) => {
   const [showMore, setShowMore] = useState(false)
   return (
-    <article className='bg-white rounded-lg shadow-md hover:shadow-xl duration-300'>
+    <article className='rounded-lg shadow-md hover:shadow-xl duration-300 bg-base-100'>
       <img src={img} alt={title} className='w-full object-cover rounded-t-lg h-64' />
       <div className='capitalize p-8'>
-        <h2 className='text-xl tracking-wide font-medium'>
+        <h2 className='text-xl tracking-wide font-medium text-primary'>
           {title}
         </h2>
 
-        <p className="mt-4 text-slate-700 leading-loose">
+        <p className="mt-4 text-primary-content leading-loose">
           {!showMore && <span>{text.slice(0, 50)}... </span>}
 
           <AnimatePresence initial={false}>

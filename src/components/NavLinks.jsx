@@ -8,7 +8,7 @@ const NavLinks = () => {
         const { id, href, text } = link;
         return (
           <li key={id} className=''>
-            <a href={href} className='capitalize text-lg tracking-width hover:text-emerald-600 duration-300'>
+            <a href={href} className='capitalize text-lg tracking-width hover:text-sky-600 duration-300'>
               {text}
             </a>
           </li>

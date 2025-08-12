@@ -1,11 +1,57 @@
 @import 'tailwindcss';
 
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, cupcake;
+  themes: nord --default, dark --prefersdark;
 }
 
+/* 你的共用 components 還是可以放這裡 */
 @layer components {
   .align-element {
     @apply mx-auto max-w-7xl px-8;
+  }
+  .theme-transition {
+    @apply transition-[background-color,border-color,opacity] duration-300;
+  }
+}
+
+/* 建議把 hero 交錯背景放 utilities 層 */
+@layer utilities {
+  /* 讓兩層背景做交錯 */
+  .hero-bg {
+    @apply absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat
+           transition-opacity duration-500 ease-in-out pointer-events-none;
+    will-change: opacity; /* 這行用原生 CSS 比 @apply 靈活 */
+  }
+  .hero-bg-light {
+    opacity: 1;
+  }
+  .hero-bg-dark {
+    opacity: 0;
+  }
+
+  /* 用 data-theme 切換兩層透明度 */
+  html[data-theme='dark'] .hero-bg-light {
+    opacity: 0;
+  }
+  html[data-theme='dark'] .hero-bg-dark {
+    opacity: 1;
+  }
+
+  /* 尊重使用者減少動效偏好（可選） */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bg {
+      transition: none;
+    }
+  }
+}
+
+@layer base {
+  html[data-theme='dark'] {
+    /* OKLCH 三元組：白 */
+    /* --p: 100% 0 0; */
+    /* 黑 */
+    /* --pc: 0% 0 0; */
+    --color-primary: oklch(1 0 0);
+    --color-primary-content: oklch(0.7151 0 48.18);
   }
 }

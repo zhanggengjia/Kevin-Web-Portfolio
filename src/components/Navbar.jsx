@@ -3,27 +3,25 @@ import { links } from '../data'
 import NavLinks from './NavLinks';
 import { BsMoonFill, BsSunFill } from 'react-icons/bs';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTheme } from '../features/user/userSlice';
 
 const Navbar = () => {
-  const [isDark, setIsDark] = useState(true);
+
+  const dispatch = useDispatch();
+  const isDark = useSelector((state) => state.userState.isDark);
+
   const handleTheme = () => {
-    setIsDark((prevValue) => {
-      const darkTheme = prevValue;
-      if (darkTheme) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-      }
-      return !isDark
-    });
+    dispatch(toggleTheme());
   }
+
   return (
-    <nav className="sticky top-0 z-50 bg-base-100/80 backdrop-blur border-b border-base-200">
+    <nav className="sticky top-0 z-50 bg-base-100/80 backdrop-blur border-b border-base-200 theme-transition">
       <div className='align-element navbar lg:px-10'>
         {/* Start */}
         <div className='navbar-start'>
           <h2 className='text-3xl font-bold hidden lg:flex'>
-            Web<span className='text-emerald-600'>Dev</span>
+            Web<span className='text-sky-600'>Dev</span>
           </h2>
           <div className='dropdown'>
             <label tabIndex={0} className='btn btn-ghost lg:hidden'>
@@ -36,24 +34,21 @@ const Navbar = () => {
         </div>
         {/* Center */}
         <div className='navbar-center hidden lg:flex'>
-          <h2 className='text-3xl font-bold lg:hidden'>
-            Web<span className='text-emerald-600'>Dev</span>
-          </h2>
           <ul className='menu menu-horizontal'>
             <NavLinks />
           </ul>
         </div>
         <div className='navbar-center lg:hidden'>
           <h2 className='text-3xl font-bold'>
-            Web<span className='text-emerald-600'>Dev</span>
+            Web<span className='text-sky-600'>Dev</span>
           </h2>
         </div>
         {/* End */}
         <div className='navbar-end'>
           <label className='swap swap-rotate'>
             <input type='checkbox' checked={isDark} onChange={handleTheme} />
-            <BsSunFill className='swap-on h-4 w-4' />
-            <BsMoonFill className='swap-off h-4 w-4' />
+            <BsSunFill className='swap-off h-4 w-4' />
+            <BsMoonFill className='swap-on h-4 w-4' />
           </label>
         </div>
       </div>
