@@ -5,6 +5,7 @@ import Skills from './components/Skills'
 import About from './components/About'
 import Projects from './components/Projects'
 import MainProjects from './components/MainProjects'
+import ArchiProjects from './components/ArchiProjects'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Hero />
       <Skills />
       <About />
+      <ArchiProjects />
       <MainProjects />
       <Projects />
     </>

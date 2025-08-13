@@ -5,7 +5,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <section className=' py-20 scroll-mt-16 bg-base-200' id='about'>
+    <section className=' py-20 scroll-mt-16 bg-base-200 theme-transition' id='about'>
       <div className='align-element grid md:grid-cols-2 items-center gap-16'>
         <img src={aboutSvg} className='w-full h-64' />
         <article>

@@ -2,10 +2,13 @@ import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from 'react-icons/fa';
 import heroLight from '../assets/hero-bg-light.jpg';
 import heroDark from '../assets/hero-bg-dark.jpg';
 import { useSelector } from 'react-redux';
+import { GoArrowRight } from "react-icons/go";
+
+
 
 const Hero = () => {
   const isDark = useSelector((state) => state.userState.isDark);
-  console.log(isDark)
+
 
   return (
     <section
@@ -28,9 +31,18 @@ const Hero = () => {
           <p className="text-primary-content mt-2 text-lg capitalize tracking-wide">turning ideas into interactive reality</p>
 
           <div className="flex gap-x-4 mt-4">
-            <a href="#"><FaGithubSquare className="h-8 w-8 opacity-80 hover:opacity-100 transition" style={{ color: 'DimGrey' }} /></a>
-            <a href="#"><FaLinkedin className="h-8 w-8 opacity-80 hover:opacity-100 transition" style={{ color: 'DimGrey' }} /></a>
-            <a href="#"><FaTwitterSquare className="h-8 w-8 opacity-80 hover:opacity-100 transition" style={{ color: 'DimGrey' }} /></a>
+            <a href="https://github.com/zhanggengjia">
+              <FaGithubSquare className="h-8 w-8 opacity-80 hover:opacity-100 transition" style={{ color: 'DimGrey' }} />
+            </a>
+            <a href="https://www.linkedin.com/in/keng-chia-chang-059725189/">
+              <FaLinkedin className="h-8 w-8 opacity-80 hover:opacity-100 transition" style={{ color: 'DimGrey' }} />
+            </a>
+            {/* <a href="#">
+              <FaTwitterSquare className="h-8 w-8 opacity-80 hover:opacity-100 transition" style={{ color: 'DimGrey' }} />
+            </a> */}
+          </div>
+          <div className='flex justify-center mt-2'>
+            <a className='btn btn-ghost bg-base-100 text-center text-primary-content text-xl capitalize tracking-wide hover:scale-[1.03] transition duration-300' href='#archiProjects'>see my projects <GoArrowRight className='h-8 w-8' /></a>
           </div>
         </article>
       </div>

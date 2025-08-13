@@ -1,18 +1,27 @@
+import { HiOutlinePhoto } from "react-icons/hi2";
 import { FaGithubSquare, FaLinkedin, FaTwitterSquare } from 'react-icons/fa';
 import { TbWorldWww } from 'react-icons/tb';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Modal from "./Modal";
 
-const ProjectsCard = ({ imgList, title, text, url, github }) => {
-  const [showMore, setShowMore] = useState(false)
+const ArchiProjectsCard = ({ imgList, title, subtitle, text, url, github, open }) => {
+  const [showMore, setShowMore] = useState(open)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const img = imgList[0];
 
   return (
-    <article className='rounded-lg shadow-md hover:shadow-xl duration-300 bg-base-100 hover:scale-[1.01]'>
+    <article className='rounded-lg shadow-md hover:shadow-xl duration-300 bg-base-100 '>
+
       <img src={img} alt={title} className='w-full object-cover rounded-t-lg h-64' />
       <div className='capitalize p-8'>
-        <h2 className='text-xl tracking-wide font-medium text-primary'>
+        <h2 className='text-xl tracking-wide font-bold text-primary border-b mb-1 pb-1'>
           {title}
+        </h2>
+
+        <h2 className='text-lg tracking-wide text-primary-content'>
+          {subtitle}
         </h2>
 
         <p className="mt-4 text-primary-content leading-loose">
@@ -46,17 +55,38 @@ const ProjectsCard = ({ imgList, title, text, url, github }) => {
 
 
         <div className='mt-4 flex gap-x-4'>
-          <a href={url}>
-            <TbWorldWww className='h-8 w-8 text-slate-500 hover:text-black duration-300' />
-          </a>
-          <a href={github}>
-            <FaGithubSquare className='h-8 w-8 text-slate-500 hover:text-black duration-300' />
-          </a>
+          <button
+            type="button"
+            onClick={() => setIsModalOpen(true)}
+          // className="btn btn-ghost btn-sm"
+          >
+            <HiOutlinePhoto className='h-8 w-8 text-slate-500 hover:text-black cursor-pointer duration-300' />
+          </button>
+
+          {url && (
+            <a href={url}>
+              <TbWorldWww className='h-8 w-8 text-slate-500 hover:text-black duration-300' />
+            </a>
+          )}
+          {github && (
+            <a href={github}>
+              <FaGithubSquare className='h-8 w-8 text-slate-500 hover:text-black duration-300' />
+            </a>
+          )}
+
         </div>
 
       </div>
+      {/* Modal 放在卡片外層也可；這裡直接掛在同層即可 */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title={title}
+        text={text}
+        imgList={imgList}
+      />
     </article>
   )
 }
 
-export default ProjectsCard
+export default ArchiProjectsCard
