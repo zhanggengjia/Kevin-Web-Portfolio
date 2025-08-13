@@ -1,5 +1,7 @@
 import { nanoid } from 'nanoid';
 import { FaHtml5, FaJs, FaReact } from 'react-icons/fa';
+import GrasshopperIcon from './icons/GrasshopperIcon';
+import RhinoIcon from './icons/RhinoIcon';
 
 export const links = [
   { id: nanoid(), href: '#home', text: 'home' },
@@ -28,6 +30,18 @@ export const skills = [
     title: 'React',
     icon: <FaReact className='h-16 w-16 text-sky-800' />,
     text: 'Advanced proficiency in React, developing efficient and interactive front-end applications with a strong emphasis on component-based architecture.',
+  },
+  {
+    id: nanoid(),
+    title: 'Grasshopper',
+    icon: <GrasshopperIcon className='h-16 w-16 text-sky-800' />,
+    text: 'Expert in Grasshopper visual programming for algorithmic modeling, enabling precise, parametric control in complex architectural and computational design workflows.',
+  },
+  {
+    id: nanoid(),
+    title: 'Rhino3D',
+    icon: <RhinoIcon className='h-16 w-16 text-sky-800' />,
+    text: 'Proficient in Rhino3D for advanced NURBS modeling, delivering precise and flexible 3D forms suitable for fabrication, simulation, and BIM interoperability.',
   },
 ];
 

@@ -42,7 +42,7 @@ const Hero = () => {
             </a> */}
           </div>
           <div className='flex justify-center mt-2'>
-            <a className='btn btn-ghost bg-base-100 text-center text-primary-content text-xl capitalize tracking-wide hover:scale-[1.03] transition duration-300' href='#archiProjects'>see my projects <GoArrowRight className='h-8 w-8' /></a>
+            <a className='btn btn-ghost text-center text-primary-content text-lg capitalize tracking-wide hover:scale-[1.05] transition duration-300' href='#archiProjects'>see my projects <GoArrowRight className='h-8 w-8' /></a>
           </div>
         </article>
       </div>
