@@ -1,7 +1,10 @@
 import { nanoid } from 'nanoid';
-import { FaHtml5, FaJs, FaReact } from 'react-icons/fa';
+import { FaHtml5, FaJs, FaPython, FaReact } from 'react-icons/fa';
 import GrasshopperIcon from './icons/GrasshopperIcon';
 import RhinoIcon from './icons/RhinoIcon';
+import CsharpIcon from './icons/GrasshopperIcon copy';
+import { SiTensorflow } from "react-icons/si";
+
 
 export const links = [
   { id: nanoid(), href: '#home', text: 'home' },
@@ -43,5 +46,24 @@ export const skills = [
     icon: <RhinoIcon className='h-16 w-16 text-sky-800' />,
     text: 'Proficient in Rhino3D for advanced NURBS modeling, delivering precise and flexible 3D forms suitable for fabrication, simulation, and BIM interoperability.',
   },
+  {
+    id: nanoid(),
+    title: 'Python',
+    icon: <FaPython className='h-16 w-16 text-sky-800' />,
+    text: 'Proficient in Python for computational design, scripting automation, and machine learning using TensorFlow and PyTorch for performance prediction.',
+  },
+  {
+    id: nanoid(),
+    title: 'C#',
+    icon: <CsharpIcon className='h-16 w-16 text-sky-800' />,
+    text: 'Skilled in C# for RhinoCommon and Grasshopper scripting, enabling custom tools, component logic, and plugin development.',
+  },
+  {
+    id: nanoid(),
+    title: 'ML for Environmental Simulation',
+    icon: <SiTensorflow className='h-16 w-16 text-sky-800' />,
+    text: 'Utilized TensorFlow and PyTorch to develop predictive models for environmental performance simulations, accelerating iterative design workflows.',
+  }
+
 ];
 

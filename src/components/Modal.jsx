@@ -4,6 +4,25 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useRef } from 'react';
+import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
+
+const NextArrow = ({ onClick }) => (
+  <div
+    className="absolute right-2 top-1/2 transform -translate-y-1/2 z-50 cursor-pointer text-2xl text-primary hover:text-sky-500 hover:scale-[1.1]"
+    onClick={onClick}
+  >
+    <FaChevronRight />
+  </div>
+);
+
+const PrevArrow = ({ onClick }) => (
+  <div
+    className="absolute left-2 top-1/2 transform -translate-y-1/2 z-50 cursor-pointer text-2xl text-primary hover:text-sky-500 hover:scale-[1.1]"
+    onClick={onClick}
+  >
+    <FaChevronLeft />
+  </div>
+);
 
 const Modal = ({ isOpen, onClose, title, text, imgList }) => {
   const sliderRef = useRef(null); // 這裡抓到 Slick 實例
@@ -28,28 +47,35 @@ const Modal = ({ isOpen, onClose, title, text, imgList }) => {
         <button
           type="button"
           onClick={onClose}
-          className="btn btn-circle btn-ghost absolute top-4 right-4"
+          className="btn btn-circle btn-ghost absolute top-4 right-4 z-11"
         >
           <FaTimes />
         </button>
 
-        <div className="flex flex-col h-full gap-2 mt-8">
+        <div className="flex flex-col h-full gap-2 ">
           {/* 上區：主圖 Carousel */}
-          <div className="flex-[6] overflow-hidden w-[50vw] mx-auto items-center">
-            <Slider ref={sliderRef} {...settings}>
-              {imgList.map((url, i) => (
-                <img
-                  key={i}
-                  src={url}
-                  alt={`image-${i}`}
-                  className="w-full object-contain mx-auto"
-                />
-              ))}
-            </Slider>
+          <div className="flex-[6] max-w-full px-4 flex justify-center items-center relative z-10 overflow-visible">
+            <div className="w-full max-w-4xl">
+              <Slider
+                ref={sliderRef}
+                {...settings}
+                nextArrow={<NextArrow />}
+                prevArrow={<PrevArrow />}>
+                {imgList.map((url, i) => (
+                  <img
+                    key={i}
+                    src={url}
+                    alt={`image-${i}`}
+                    className="w-full max-h-[50vh] object-contain"
+                  />
+                ))}
+              </Slider>
+            </div>
           </div>
 
+
           {/* 中區：縮圖列，點擊切換 */}
-          <div className="flex-[1] overflow-x-auto flex justify-center gap-2">
+          <div className="flex-[0.6] overflow-x-auto flex justify-center items-center gap-2">
             {imgList.map((url, i) => (
               <img
                 key={i}

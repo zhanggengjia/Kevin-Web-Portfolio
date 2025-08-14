@@ -16,7 +16,7 @@ const ArchiProjects = () => {
   }
 
   return (
-    <section className="py-20  bg-base-300 theme-transition" id="archiProjects">
+    <section className="py-20 theme-transition" id="archiProjects">
       <div className="align-element">
         <SectionTitle text='Architecture Projects' />
         <div className="py-16 grid lg:grid-cols-2 xl:grid-cols-3 gap-8">

@@ -21,7 +21,7 @@ const Navbar = () => {
         {/* Start */}
         <div className='navbar-start'>
           <h2 className='text-3xl font-bold hidden lg:flex'>
-            Web<span className='text-sky-600'>Dev</span>
+            Kevin<span className='text-sky-600'>Synth</span>
           </h2>
           <div className='dropdown'>
             <label tabIndex={0} className='btn btn-ghost lg:hidden'>
@@ -40,7 +40,7 @@ const Navbar = () => {
         </div>
         <div className='navbar-center lg:hidden'>
           <h2 className='text-3xl font-bold'>
-            Web<span className='text-sky-600'>Dev</span>
+            Kevin<span className='text-sky-600'>Synth</span>
           </h2>
         </div>
         {/* End */}

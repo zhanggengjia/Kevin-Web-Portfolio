@@ -10,6 +10,8 @@ import ArchiProjects from './components/ArchiProjects'
 const App = () => {
   return (
     <>
+      <div className="main-bg main-bg-light"></div>
+      <div className="main-bg main-bg-dark"></div>
       <Navbar />
       <Hero />
       <Skills />

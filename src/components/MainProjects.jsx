@@ -15,7 +15,7 @@ const MainProjects = () => {
   }
 
   return (
-    <section className="py-20 bg-base-300 theme-transition" id="projects">
+    <section className="py-20 theme-transition" id="projects">
       <div className="align-element">
         <SectionTitle text='web projects' />
         <div className="py-16 grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
