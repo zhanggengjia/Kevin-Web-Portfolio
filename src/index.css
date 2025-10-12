@@ -65,12 +65,12 @@
 
   .main-bg-light {
     opacity: 1;
-    background-image: url('./assets/bg-light.jpg');
+    background-image: url('./assets/bg-light.svg');
   }
 
   .main-bg-dark {
     opacity: 0;
-    background-image: url('./assets//bg-dark.jpg');
+    background-image: url('./assets//bg-dark.svg');
   }
 
   html[data-theme='dark'] .main-bg-light {
