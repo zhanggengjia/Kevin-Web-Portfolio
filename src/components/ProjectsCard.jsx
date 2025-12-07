@@ -49,7 +49,7 @@ const ProjectsCard = ({ imgList, title, text, url, github }) => {
           <a href={url} target='_blank' rel="noreferrer">
             <TbWorldWww className='h-8 w-8 text-slate-500 hover:text-black duration-300' />
           </a>
-          <a href={github}>
+          <a href={github} target='_blank' rel="noreferrer">
             <FaGithubSquare className='h-8 w-8 text-slate-500 hover:text-black duration-300' />
           </a>
         </div>
